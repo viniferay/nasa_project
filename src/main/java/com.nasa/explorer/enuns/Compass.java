@@ -19,6 +19,9 @@ public enum Compass {
     }
 
     public int getAxleY() {
+        if(this.name().equals(NORTH.name())){
+            return axleY+1;
+        }
         return axleY;
     }
 
