@@ -26,6 +26,13 @@ public enum Command {
         return shortcut;
     }
 
+    public boolean isMoveCommand(){
+        if (this == Command.MOVE){
+            return true;
+        }
+        return false;
+    }
+
     public static Command getComand(String shortcut){
         Optional<Command> command = Arrays.stream(Command.values())
                 .filter(object -> object.shortcut.equals(shortcut.toUpperCase())).findFirst();
