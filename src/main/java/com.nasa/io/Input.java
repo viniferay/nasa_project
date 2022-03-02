@@ -29,4 +29,9 @@ public class Input {
             throw new UnrecognizedCommandsException(validateList);
         }
     }
+
+    public static Map<String, Integer> treatCoordinates(String coordinates){
+        String[] xY = coordinates.split(",");
+        return Map.of("x", Integer.parseInt(xY[0]), "y", Integer.parseInt(xY[1]));
+    }
 }
