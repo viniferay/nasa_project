@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Input {
 
-    private static Scanner scanner(){
+    public static Scanner scanner(){
         return new Scanner(System.in);
     }
 
@@ -16,7 +16,7 @@ public class Input {
       return Map.of("coordinates", scanner().nextLine(), "commands", scanner().nextLine().toUpperCase());
     }
 
-    public static void validateComands(String inputComands){
+    public static List<Character> validateComands(String inputComands){
         List<Character> validCommands = Arrays.stream(Command.values()).map(object -> object.getShortcut().charAt(0))
                 .collect(Collectors.toList());
 
@@ -28,10 +28,11 @@ public class Input {
         if(!validateList.isEmpty()){
             throw new UnrecognizedCommandsException(validateList);
         }
+        return commands;
     }
 
-    public static Map<String, Integer> treatCoordinates(String coordinates){
-        String[] xY = coordinates.split(",");
-        return Map.of("x", Integer.parseInt(xY[0]), "y", Integer.parseInt(xY[1]));
+    public static Map<String, String> treatCoordinates(String coordinates){
+        String[] xY = coordinates.split(" ");
+        return Map.of("x", xY[0], "y", xY[1], "direction", xY[2]);
     }
 }
