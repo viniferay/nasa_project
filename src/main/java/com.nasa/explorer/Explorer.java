@@ -49,7 +49,16 @@ public class Explorer {
         positionX += direction.getAxleX();
         positionY += direction.getAxleY();
     }
-    
+
+    public void playCommand(String commandLine){
+        Command command = Command.getComand(commandLine);
+        if (command.isMoveCommand()){
+            move();
+        }else{
+            turnAround(command);
+        }
+    }
+
     @Override
     public String toString() {
         return  positionX+" "+positionY+" "+direction.getSurname();
