@@ -1,24 +1,33 @@
 package com.nasa.explorer.enuns;
 
+import com.nasa.explorer.exceptions.CommandInvalidException;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public enum Compass {
-    NORTH(0, 1),
-    EAST(1, 0),
-    SOUTH(0, -1),
-    WEST(-1, 0);
+    NORTH(0, 1, "N"),
+    EAST(1, 0, "E"),
+    SOUTH(0, -1, "S"),
+    WEST(-1, 0, "W");
 
     private int axleX;
     private int axleY;
+    private String surname;
 
-    Compass(int x, int y){
+    Compass(int x, int y, String surname){
         this.axleX = x;
         this.axleY = y;
+        this.surname = surname;
     }
 
     public int getAxleX() {
         return axleX;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 
     public int getAxleY() {
@@ -39,4 +48,13 @@ public enum Compass {
         }
         return Compass.values()[index+command.getValue()];
     }
+
+
+    public static Compass getCompassWithString(String surnameLine){
+        Optional<Compass> compass = Arrays.stream(Compass.values())
+                .filter(object -> object.surname.equals(surnameLine.toUpperCase())).findFirst();
+
+        return compass.get();
+    }
+
 }
