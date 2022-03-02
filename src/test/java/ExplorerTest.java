@@ -1,4 +1,5 @@
 import com.nasa.explorer.Explorer;
+import com.nasa.explorer.enuns.Command;
 import com.nasa.explorer.enuns.Compass;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,5 +23,17 @@ public class ExplorerTest {
 
         Assert.assertEquals(2, explorer.getPositionY());
         Assert.assertEquals(1, explorer.getPositionX());
+    }
+
+    @Test
+    public void turnAroundTest(){
+        Explorer explorer = new Explorer();
+        explorer.setPositionX(0);
+        explorer.setPositionY(0);
+        explorer.setDirection(Compass.NORTH);
+
+        explorer.turnAround(Command.LEFT);
+
+        Assert.assertEquals(Compass.WEST, explorer.getDirection());
     }
 }

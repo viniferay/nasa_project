@@ -1,5 +1,6 @@
 package com.nasa.explorer;
 
+import com.nasa.explorer.enuns.Command;
 import com.nasa.explorer.enuns.Compass;
 
 public class Explorer {
@@ -31,9 +32,13 @@ public class Explorer {
         this.positionX = positionX;
     }
 
+    public void turnAround(Command command){
+        this.direction = direction.getDirection(command);
+    }
+
     public void move(){
         positionX += direction.getAxleX();
         positionY += direction.getAxleY();
     }
-    
+
 }
