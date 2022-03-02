@@ -8,6 +8,15 @@ public class Explorer {
     private int positionY;
     private int positionX;
 
+    public Explorer() {
+    }
+
+    public Explorer(String direction, String positionY, String positionX) {
+        this.direction = Compass.getCompassWithString(direction);
+        this.positionY = Integer.parseInt(positionY);
+        this.positionX = Integer.parseInt(positionX);
+    }
+
     public Compass getDirection() {
         return direction;
     }
@@ -40,5 +49,9 @@ public class Explorer {
         positionX += direction.getAxleX();
         positionY += direction.getAxleY();
     }
-
+    
+    @Override
+    public String toString() {
+        return  positionX+" "+positionY+" "+direction.getSurname();
+    }
 }
