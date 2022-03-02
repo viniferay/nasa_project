@@ -1,6 +1,7 @@
 package com.nasa.explorer.enuns;
 
 import com.nasa.explorer.exceptions.CommandInvalidException;
+import com.nasa.explorer.exceptions.CompassInvalidException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +54,7 @@ public enum Compass {
     public static Compass getCompassWithString(String surnameLine){
         Optional<Compass> compass = Arrays.stream(Compass.values())
                 .filter(object -> object.surname.equals(surnameLine.toUpperCase())).findFirst();
+        compass.orElseThrow(() -> new CompassInvalidException());
 
         return compass.get();
     }
