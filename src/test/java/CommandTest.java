@@ -9,10 +9,11 @@ public class CommandTest {
     public void getCommandTest(){
         Assert.assertEquals(Command.LEFT, Command.getComand("L"));
         Assert.assertEquals(Command.RIGTH, Command.getComand("R"));
+        Assert.assertEquals(Command.MOVE, Command.getComand("M"));
     }
 
     @Test
     public void getCommandExceptionCaseTest(){
-        Assert.assertThrows(CommandInvalidException.class, () -> {Command.getComand("M");});
+        Assert.assertThrows(CommandInvalidException.class, () -> {Command.getComand("V");});
     }
 }

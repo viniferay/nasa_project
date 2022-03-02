@@ -7,7 +7,8 @@ import java.util.Optional;
 
 public enum Command {
     LEFT(-1, "L"),
-    RIGTH(1, "R");
+    RIGTH(1, "R"),
+    MOVE(0, "M");
 
     private int value;
     private String shortcut;
