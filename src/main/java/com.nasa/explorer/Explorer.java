@@ -30,5 +30,10 @@ public class Explorer {
     public void setPositionX(int positionX) {
         this.positionX = positionX;
     }
+
+    public void move(){
+        positionX += direction.getAxleX();
+        positionY += direction.getAxleY();
+    }
     
 }
