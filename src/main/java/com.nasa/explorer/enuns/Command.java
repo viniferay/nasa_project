@@ -22,6 +22,10 @@ public enum Command {
         return value;
     }
 
+    public String getShortcut() {
+        return shortcut;
+    }
+
     public static Command getComand(String shortcut){
         Optional<Command> command = Arrays.stream(Command.values())
                 .filter(object -> object.shortcut.equals(shortcut.toUpperCase())).findFirst();
