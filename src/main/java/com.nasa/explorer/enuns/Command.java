@@ -18,6 +18,10 @@ public enum Command {
         this.shortcut = shortcut;
     }
 
+    public int getValue() {
+        return value;
+    }
+
     public static Command getComand(String shortcut){
         Optional<Command> command = Arrays.stream(Command.values())
                 .filter(object -> object.shortcut.equals(shortcut.toUpperCase())).findFirst();
