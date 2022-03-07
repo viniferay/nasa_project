@@ -11,10 +11,10 @@ public class Explorer {
     public Explorer() {
     }
 
-    public Explorer(String direction, String positionY, String positionX) {
+    public Explorer(String direction, int positionY, int positionX) {
         this.direction = Compass.getCompassWithString(direction);
-        this.positionY = Integer.parseInt(positionY);
-        this.positionX = Integer.parseInt(positionX);
+        this.positionY = positionY;
+        this.positionX = positionX;
     }
 
     public Compass getDirection() {
