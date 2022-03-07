@@ -1,9 +1,22 @@
 package com.nasa.explorer.dtos;
 
+import com.nasa.explorer.annotations.CommandValidation;
+import com.nasa.explorer.annotations.DirectionValidation;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class ExplorerDTO {
+    @NotNull(message = "{not.null}")
     private int positionY;
+    @NotNull(message = "{not.null}")
     private int positionX;
+    @NotNull
+    @Size(min = 1, max = 1, message = "{direction.not.null}")
+    @DirectionValidation()
     private String direction;
+    @CommandValidation()
+    @NotNull(message = "{not.null}")
     private String instructions;
 
     public ExplorerDTO() {
