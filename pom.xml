@@ -9,7 +9,7 @@
         <version>2.5.10</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.example</groupId>
+    <groupId>org.nasa</groupId>
     <artifactId>nasa_project</artifactId>
     <version>1.0</version>
 
